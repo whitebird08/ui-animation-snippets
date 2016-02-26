@@ -1,0 +1,83 @@
+body {
+  background: #B7C9E5;
+  color: #F4F4F4;
+  font-family: 'Dosis', Helvetica, Arial, sans-serif;
+  font-weight: 600;
+}
+
+section {
+  width: 40%;
+  margin: 4em auto;
+  overflow: hidden;
+}
+
+ul {
+  list-style: none;
+  margin: 0 0 .5em 0;
+  padding: 0;
+}
+ul li {
+  text-transform: uppercase;
+  padding: 10px 0 0 5%;
+  margin: 0;
+  height: 30px;
+  display: block;
+  background: #141619;
+  border-bottom: 1px solid rgba(252, 252, 252, 0.1);
+}
+
+button {
+  width: 50%;
+  padding: .75em 0;
+  float: left;
+  border: none;
+  text-transform: uppercase;
+  color: white;
+  background: #419FE8;
+}
+
+.remove {
+  background: #A6365A;
+}
+
+.new-item {
+  max-height: 0;
+  opacity: 0;
+  transform: translateX(-600px);
+  animation: openList 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards, itemEnter 0.3s 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards, itemHighlight 2s 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.old-item {
+  animation: itemExit 0.75s cubic-bezier(0.245, -0.09, 0.735, 0.045) forwards;
+}
+
+@keyframes openList {
+  to {
+    max-height: 40px;
+  }
+}
+@keyframes itemEnter {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes itemExit {
+  15%, 30% {
+    background: #A6365A;
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(600px);
+  }
+}
+@keyframes itemHighlight {
+  5%, 60% {
+    background: #419FE8;
+  }
+  100% {
+    background: #141619;
+  }
+}
